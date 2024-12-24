@@ -1,31 +1,21 @@
 {% extends 'layouts/base.html' %}
+{% load crispy_forms_filters %}
+
 
 {% block content %}
-    <div class="container pt-5">
-        <div class="row">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">User Name</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    <div class="w-100 vh-100 my-bg-color pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="card-header">ToDo</div>
+                    <div class="card">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-green px-5">Save</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Your email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <span class="input-group-text" id="basic-addon2">Email</span>
-            </div>
-          
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Full Name" aria-label="Full Name">
-                <span class="input-group-text">Full Name</span>
-            </div>
-          
-            <div class="input-group">
-                <span class="input-group-text">Comment</span>
-                <textarea class="form-control" aria-label="Comment"></textarea>
-            </div>
-            <div class="" method="POST">
-                <a href="#" class="btn btn-outline-secondary" type="submit">Save</a>
-            </div>
-        </div>
+        </div> 
     </div>
-    
 {% endblock %}
